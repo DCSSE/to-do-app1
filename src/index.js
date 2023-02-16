@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AppHeader from "./app-header";
+import AppHeader from "./cmpnents/app-header";
 import SearchPan from "./srch-panel";
-import TodoList from "./todo-list";
+import TodoList from "./cmpnents/todo-list";
 
-
+import ItemStatusFilter from "./cmpnents/item-status-filter";
 
 const App = () => {
 
@@ -21,6 +21,7 @@ const App = () => {
         <AppHeader/>
         <SearchPan/>
         <TodoList thtodo={DataB}/>
+        <ItemStatusFilter />
     </div>
 }
 
