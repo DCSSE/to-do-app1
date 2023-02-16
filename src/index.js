@@ -1,17 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const TodoList = () => {
+    const things = ['Install React Proj', 'React start npm', 'Do homework', 'Drink tea', 'Watch kdrama'];
+    return (
+        <ul>
+            <li> {things[0]} </li>
+            <li> {things[1]} </li>
+            <li> {things[2]} </li>
+            <li> {things[3]} </li>
+            <li> {things[4]} </li>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+        </ul>
+    )
+}
+
+const AppHeader = () => {
+    return <h1>My To-do list</h1>
+}
+
+const SearchPan = () => {
+    const srchText = 'Type text';
+    const srchStyle = {
+        fontSize: "20px"
+    };
+    return <input style={srchStyle}
+        placeholder={srchText}
+                  disabled={true}
+    />
+}
+
+const App = () => {
+    return <div>
+        <AppHeader/>
+        <SearchPan/>
+        <TodoList/>
+    </div>
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
