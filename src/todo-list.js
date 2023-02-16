@@ -6,7 +6,7 @@ const TodoList = ({thtodo}) => {
     const elms = thtodo.map( (item) =>  {
         return (
             <li>
-                <TodoListItem label={item.label} important={item.important} />
+                <TodoListItem {...item} />
             </li>
         );
     });
