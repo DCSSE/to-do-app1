@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AppHeader from "./cmpnents/app-header";
-import SearchPan from "./srch-panel";
 import TodoList from "./cmpnents/todo-list";
+import SrchPanel from "./srch-panel";
 
 import ItemStatusFilter from "./cmpnents/item-status-filter";
+import './index.css';
+
 
 const App = () => {
 
@@ -17,12 +19,17 @@ const App = () => {
     ];
 
 
-    return <div>
-        <AppHeader/>
-        <SearchPan/>
-        <TodoList thtodo={DataB}/>
-        <ItemStatusFilter />
+    return (
+        <div className="todo-app">
+            <AppHeader toDo={1} done={3} />
+        <div className="top-panel d-flex">
+            <SrchPanel />
+            <ItemStatusFilter />
+        </div>
+
+        <TodoList todos={DataB} />
     </div>
+    )
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
