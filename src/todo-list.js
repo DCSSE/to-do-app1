@@ -4,9 +4,10 @@ import TodoListItem from "./todo-list-item";
 const TodoList = ({thtodo}) => {
 
     const elms = thtodo.map( (item) =>  {
+        const {id, ...itemProps} = item;
         return (
-            <li>
-                <TodoListItem {...item} />
+            <li key = { item.id }>
+                <TodoListItem {...itemProps} />
             </li>
         );
     });
