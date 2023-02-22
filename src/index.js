@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import AppHeader from "./cmpnents/app-header";
 import TodoList from "./cmpnents/todo-list";
-import SrchPanel from "./srch-panel";
+import SrchPanel from "./cmpnents/srch-panel";
 
 import ItemStatusFilter from "./cmpnents/item-status-filter";
 import './index.css';
@@ -27,7 +27,7 @@ const App = () => {
             <ItemStatusFilter />
         </div>
 
-        <TodoList todos={DataB} />
+        <TodoList thtodo={DataB} />
     </div>
     )
 }

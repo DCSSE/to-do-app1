@@ -10,7 +10,7 @@ const TodoListItem = ({label, important = false}) => {
         <span className={ "todo-list-item" } >
             <span
                 className="todo-list-item-label"
-                style={style}>{label}
+                style={style} > {label}
             </span>
 
             <button type="button"

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./cmpnents/srch-pan.css"
+import "./srch-pan.css"
 
 const SearchPan = () => {
     return (
