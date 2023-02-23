@@ -24,7 +24,7 @@ const App = () => {
                 <ItemStatusFilter />
             </div>
 
-            <TodoList thtodo={DataB} />
+            <TodoList thtodo={DataB} onDeleted = {(id) => console.log('del', id) } />
         </div>
     )
 }
