@@ -5,6 +5,7 @@ import TodoList from "../todo-list/todo-list";
 import ItemStatusFilter from "../item-status-filter";
 import './app.css'
 import SrchPanel from "../search-pan/srch-panel";
+import ItemAddForm from "../item-add-form";
 
 export default class App extends Component {
 
@@ -21,7 +22,6 @@ export default class App extends Component {
     deleteItem = (id) => {
         this.setState( ({DataB}) => {
             const idDel = DataB.findIndex( (elm) =>  elm.id === id );
-            console.log(idDel);
 
             // [a, b c, d, e]
             // [a, b,   d, e]
@@ -47,6 +47,8 @@ export default class App extends Component {
                 </div>
 
                 <TodoList thtodo={this.state.DataB} onDeleted = { this.deleteItem} />
+
+                <ItemAddForm/>
 
             </div>
         );
