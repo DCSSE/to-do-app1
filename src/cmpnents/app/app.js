@@ -9,6 +9,7 @@ import ItemAddForm from "../item-add-form";
 
 export default class App extends Component {
 
+    maxId = 200;
     state = {
         DataB: [
             {label: 'Drink tea', important: false, id:1},
@@ -36,6 +37,17 @@ export default class App extends Component {
         } );
     };
 
+    addItem = (text) => {
+        const newItem = {
+            label: text, important: false, id: this.maxId++
+        };
+        this.setState( ({DataB}) => {
+            const newArr = [...DataB, newItem];
+            return {
+                DataB: newArr};
+        } );
+    };
+
     render() {
         return (
             <div className="todo-app">
@@ -48,7 +60,7 @@ export default class App extends Component {
 
                 <TodoList thtodo={this.state.DataB} onDeleted = { this.deleteItem} />
 
-                <ItemAddForm/>
+                <ItemAddForm onItemAdded = {this.addItem}/>
 
             </div>
         );
