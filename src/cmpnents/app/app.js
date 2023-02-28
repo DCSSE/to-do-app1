@@ -22,12 +22,13 @@ export default class App extends Component {
         this.setState( ({DataB}) => {
             const idDel = DataB.findIndex( (elm) =>  elm.id === id );
             console.log(idDel);
-            DataB.splice(id, 1);
+
             // [a, b c, d, e]
             // [a, b,   d, e]
-            const before = DataB.slice(0, idDel);
-            const after = DataB.slice(idDel+1);
-            const newArr = [...before, ...after];
+            const newArr = [
+                ...DataB.slice(0, idDel),
+                ...DataB.slice(idDel +1)
+            ];
 
             return {
                 DataB: newArr
@@ -50,17 +51,5 @@ export default class App extends Component {
             </div>
         );
     }
-
-
-
-        // <div className="todo-app">
-        //     <AppHeader toDo={1} done={3} />
-        //     <div className="top-panel d-flex">
-        //         <SrchPanel />
-        //         <ItemStatusFilter />
-        //     </div>
-        //
-        //     <TodoList thtodo={DataB} onDeleted = {(id) => console.log('del', id) } />
-        // </div>
 
 }
