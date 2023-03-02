@@ -12,13 +12,24 @@ export default class App extends Component {
     maxId = 200;
     state = {
         DataB: [
-            {label: 'Drink tea', important: false, id:1},
-            {label: 'Implement changes in app', important: true, id:2},
-            {label: 'Make notes', important: false, id:3},
-            {label: 'Buy groceries', important: false, id:4},
+
+            this.createTodoItem('Drink tea'),
+            this.createTodoItem('Implement changes in app'),
+            this.createTodoItem('Make notes')
+            // {label: 'Drink tea', important: false, id:1},
+            // {label: 'Implement changes in app', important: true, id:2},
+            // {label: 'Make notes', important: false, id:3},
+            // {label: 'Buy groceries', important: false, id:4},
 
         ]
     };
+
+    createTodoItem(label) {
+        return {
+            label, important: false,
+            done: false, id: this.maxId++
+        }
+    }
 
     deleteItem = (id) => {
         this.setState( ({DataB}) => {
@@ -38,9 +49,10 @@ export default class App extends Component {
     };
 
     addItem = (text) => {
-        const newItem = {
-            label: text, important: false, id: this.maxId++
-        };
+
+        const newItem = this.createTodoItem(text);
+
+
         this.setState( ({DataB}) => {
             const newArr = [...DataB, newItem];
             return {
@@ -48,25 +60,53 @@ export default class App extends Component {
         } );
     };
 
-     onToggleImp = (id) => {
-         console.log('Toggle Imp: ', id );
-     };
+     toggleProperty(arr, id, propName) {
+         const idDel = arr.findIndex( (elm) => elm.id === id );
+
+         const oldItem = arr[idDel];
+         const newItem = {...oldItem, [propName]: !oldItem[propName] };
+
+         return [
+             ...arr.slice(0, idDel),
+             newItem,
+             ...arr.slice(idDel+1)
+         ];
+
+     }
 
      onToggleDone = (id) => {
-         console.log('Toggle done: ', id);
+         this.setState( ({DataB}) => {
+             return  {
+                 DataB: this.toggleProperty(DataB, id, 'done')
+             };
+         } );
      };
 
+    onToggleImp = (id) => {
+        this.setState( ({DataB}) => {
+            return  {
+                DataB: this.toggleProperty(DataB, id, 'important')
+            };
+        } );
+    };
+
     render() {
+
+        const {DataB} = this.state;
+        const doneCnt = DataB.filter( (elm) => elm.done ).length;
+        const tdCnt = DataB.length - doneCnt;
+
         return (
+
             <div className="todo-app">
-                <AppHeader toDo={1} done={3} />
+                <AppHeader toDo={tdCnt} done={doneCnt} />
 
                 <div className="top-panel d-flex">
                      <SrchPanel />
                     <ItemStatusFilter />
                 </div>
 
-                <TodoList thtodo={this.state.DataB}
+                <TodoList thtodo={DataB}
                           onDeleted = { this.deleteItem}
                           onToggleImp = {this.onToggleImp}
                           onToggleDone = {this.onToggleDone}
