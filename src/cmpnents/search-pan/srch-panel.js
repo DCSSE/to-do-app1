@@ -8,9 +8,9 @@ export default class SearchPan extends Component {
     };
 
     onSearchChg = (e) => {
-        const word = e.target.value;
-        this.setState({word});
-        this.props.onSearchChg(word);
+        const term = e.target.value;
+        this.setState({term});
+        this.props.onSearchChange(term);
     };
 
     render() {
