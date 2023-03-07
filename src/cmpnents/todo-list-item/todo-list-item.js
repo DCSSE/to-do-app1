@@ -11,19 +11,23 @@ export default class TodoListItem extends Component {
 
         let classNames = 'todo-list-item';
 
-        if(done) {
-            classNames += 'done';
+        if (important) {
+            classNames += ' important'
+            console.log(classNames);
         }
 
-        if (important) {
-            classNames += 'important'
+        if(done) {
+            classNames += ' done';
+            console.log(classNames);
         }
+
 
         return(
-            <span className={ "todo-list-item" } >
+            <span className={classNames } >
                 <span
                     className="todo-list-item-label"
-                    onClick={onToggleDone}> {label}
+                    onClick={onToggleDone}>
+                    {label}
                 </span>
 
                 <button type="button"
