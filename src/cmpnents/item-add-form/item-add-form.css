@@ -5,4 +5,10 @@
 
 .item-add-form input {
     margin-right: 5px;
+    margin-top: 5px;
+    background-color: #F9E5E4;
+}
+
+button.btn.btn-outline-secondary {
+    margin-top: 5px;
 }

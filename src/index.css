@@ -1,6 +1,17 @@
+body{
+    background-color: #CDCACE;
+}
+
+
 .todo-app {
     margin: 2rem auto 0 auto;
     max-width: 400px;
+    color: #4F0A79;
+}
+
+.container {
+    padding-bottom: 25px;
+    background-color: #D6D4D8;
 }
 
 .top-panel {
