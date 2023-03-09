@@ -13,19 +13,16 @@ export default class TodoListItem extends Component {
 
         if (important) {
             classNames += ' important'
-            console.log(classNames);
         }
 
         if(done) {
             classNames += ' done';
-            console.log(classNames);
         }
 
 
         return(
-            <span className={classNames } >
-                <span
-                    className="todo-list-item-label"
+            <span className={classNames} >
+                <span className="todo-list-item-label"
                     onClick={onToggleDone}>
                     {label}
                 </span>
@@ -34,6 +31,12 @@ export default class TodoListItem extends Component {
                     className="btn btn-outline-success btn-sm float-right"
                         onClick = {onToggleImp}>
                     <i className="fa fa-exclamation" />
+                </button>
+
+                <button type="button"
+                        className="btn btn-outline-rewrite btn-sm float-right"
+                        onClick={onDeleted}>
+                    <i className="fa fa-pencil-square-o" />
                 </button>
 
                 <button type="button"

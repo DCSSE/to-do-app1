@@ -1,0 +1,13 @@
+.btn-group button {
+    font-size: 14px;
+}
+
+.btn.btn-info {
+    background-color: lightblue;
+    margin: 0 4px;
+}
+
+.btn.btn-outline-secondary {
+    background-color: darkgray;
+    margin: 0 4px;
+}

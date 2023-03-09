@@ -14,7 +14,7 @@ export default class App extends Component {
         DataB: [
 
             this.createTodoItem('Drink tea'),
-            this.createTodoItem('Implement changes in app'),
+            this.createTodoItem('Implement change in app'),
             this.createTodoItem('Make notes')
             // {label: 'Drink tea', important: false, id:1},
             // {label: 'Implement changes in app', important: true, id:2},
@@ -134,22 +134,24 @@ export default class App extends Component {
         return (
 
             <div className="todo-app">
-                <AppHeader toDo={tdCnt} done={doneCnt} />
+                <div className="todo-app-cont">
+                    <AppHeader toDo={tdCnt} done={doneCnt} />
 
-                <div className="top-panel d-flex">
-                     <SrchPanel onSearchChange = {this.onSearchChg} />
-                    <ItemStatusFilter filter = {filter}
-                        onFilterChange = {this.onFilterChg} />
+                    <div className="top-panel d-flex">
+                         <SrchPanel onSearchChange = {this.onSearchChg} />
+                        <ItemStatusFilter filter = {filter}
+                            onFilterChange = {this.onFilterChg} />
+                    </div>
+
+                    <TodoList thtodo={visibleItems}
+                              onDeleted = { this.deleteItem}
+                              onToggleImp = {this.onToggleImp}
+                              onToggleDone = {this.onToggleDone}
+                    />
+
+                    <ItemAddForm onItemAdded = {this.addItem}/>
+
                 </div>
-
-                <TodoList thtodo={visibleItems}
-                          onDeleted = { this.deleteItem}
-                          onToggleImp = {this.onToggleImp}
-                          onToggleDone = {this.onToggleDone}
-                />
-
-                <ItemAddForm onItemAdded = {this.addItem}/>
-
             </div>
         );
     }

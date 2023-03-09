@@ -6,7 +6,8 @@ export default class ItemStatusFilter extends Component {
     buttons = [
         {name: 'all', label: 'All tasks'},
         {name: 'active', label: 'Active tasks'},
-        {name: 'done', label: 'Completed tasks'}
+        {name: 'done', label: 'Completed tasks'},
+        {name: 'deleted', label: 'Deleted tasks'}
     ];
 
     render() {
