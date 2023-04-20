@@ -1,3 +1,6 @@
+<img width="960" alt="ToDoList" src="https://user-images.githubusercontent.com/99336969/233456056-692e2bf3-80e1-4063-b952-bd70a4e0d934.png">
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
